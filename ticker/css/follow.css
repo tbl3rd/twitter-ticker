@@ -1,0 +1,62 @@
+/*
+ * Twitter Ticker follow page style.  See the various defpartial forms
+ * in follow.clj for class names and IDs.
+ */
+
+.add {
+    font-family: sans-serif;
+    margin: 10px;
+    border: 5px;
+}
+
+.avatar {
+    border-radius: 5px;
+    height: 48px;
+    margin: 5px;
+    vertical-align: middle;
+    width: 48px;
+}
+
+.feedback {
+    font-family: sans-serif;
+    margin: 10px;
+}
+
+.following {
+    margin: 10px;
+}
+
+h {
+    font-family: sans-serif;
+    font-size: 24px;
+}
+
+.names {
+    display: inline-block;
+    margin: 10px;
+    vertical-align: middle;
+}
+
+.stop {
+    background-color: transparent;
+    border: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px;
+    padding: 2px;
+    vertical-align: middle;
+    /* width: 300px; */
+}
+
+#stop-button {
+    margin: 10px;
+}
+
+text.name {
+    font-family: sans-serif;
+}
+
+text.screen {
+    color: gray;
+    font-family: sans-serif;
+}
