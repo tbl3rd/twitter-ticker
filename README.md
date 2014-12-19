@@ -7,6 +7,7 @@ A Twitter ticker demo.
 Here's how to build and deploy the demo on a Linux machine
 assuming it has the basic Java infrastructure installed.
 
+```
 tbl3rd@ownlife ~ # git clone https://github.com/tbl3rd/twitter-ticker.git
 Initialized empty Git repository in /home/tbl3rd/twitter-ticker/.git/
 tbl3rd@ownlife ~ # cd twitter-ticker
@@ -90,6 +91,7 @@ Serving ticker/js/follow.js
 Serving ticker/css/follow.css
 ...
 tbl3rd@ownlife ~/demo #
+```
 
 You can specify a different port on the command line.  For example,
 the following command tells the demo server to use 8080 instead of
@@ -105,6 +107,7 @@ Open http://localhost:8080/ticker/follow to follow some Twitter users.
 You may see something like the following response in the console when
 adding the first @ScreenName in the /follow form.
 
+```
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 <title>Error 401 UNAUTHORIZED</title>
@@ -113,6 +116,7 @@ adding the first @ScreenName in the /follow form.
 <h2>HTTP ERROR: 401</h2>
 <p>Problem accessing /1/statuses/sample.json. Reason:
 <pre>    UNAUTHORIZED</pre></p>
+```
 
 That means there is an OAuth validation problem between the Twitter
 client running in the demo server and the Twitter API service.  The
@@ -122,6 +126,7 @@ Fix that with 'su date ...' or whatever and restart the demo.
 This is how to set up the RFB source.  First, start the server running
 as root.  You need to run as root to serve the default HTTP port 80.
 
+```
 tbl3rd@engsoc ~/engsoc/twitter-ticker # lein uberjar
 lein uberjar
 Compiling ClojureScript.
@@ -149,18 +154,22 @@ You can view the site at http://localhost:80
 root@engsoc /home/tbl3rd/engsoc/twitter-ticker # exit
 exit
 tbl3rd@engsoc ~/engsoc/twitter-ticker #
+```
 
 Then exit back to run again as whomever, start an Xvnc server running
 Google Chrome in "kiosk mode" on the feed page.  To do that set up
 your ~/.vnc/xstartup file like this.
 
+```
 tbl3rd@engsoc ~/engsoc/twitter-ticker # cat ~/.vnc/xstartup
 #!/bin/sh
 /usr/bin/google-chrome --kiosk http://localhost/ticker/feed
 tbl3rd@engsoc ~/engsoc/twitter-ticker #
+```
 
 Then start up an Xvnc server on your ~/.vnc/xstartup file like this.
 
+```
 tbl3rd@engsoc ~/engsoc/twitter-ticker # vncserver :0 -desktop X -geometry 1280x720 -depth 32 -alwaysshared -securitytypes none
 
 New 'engsoc.tbl3rd.com:0 (tbl3rd)' desktop is engsoc.tbl3rd.com:0
@@ -169,9 +178,11 @@ Starting applications specified in /home/tbl3rd/.vnc/xstartup
 Log file is /home/tbl3rd/.vnc/engsoc.tbl3rd.com:0.log
 
 tbl3rd@engsoc ~/engsoc/twitter-ticker #
+```
 
 There is a ~/bin/ticker-demo to help me remember all this junk.
 
+```
 tbl3rd@engsoc ~/engsoc/twitter-ticker # cat ~/bin/ticker-demo
 #!/bin/sh
 #
@@ -189,11 +200,13 @@ tbl3rd@engsoc ~/engsoc/twitter-ticker # cat ~/bin/ticker-demo
 vncserver :0 -desktop X -geometry 1280x720 -depth 32 -alwaysshared -securitytypes none
 echo kill $(cat ~/.vnc/engsoc*:0.pid)
 tbl3rd@engsoc ~/engsoc/twitter-ticker #
+```
 
 Now you should be able to start up a vncviewer to check that
 everything is running as expected, then just kill it or put it in the
 background.
 
+```
 tbl3rd@ownlife ~ # vncviewer engsoc
 
 TigerVNC Viewer for X version 1.0.90 - built Dec  8 2011 01:41:17
@@ -214,6 +227,7 @@ Thu Dec 18 22:49:15 EST 2014
 Thu Dec 18 22:49:15 EST 2014
  main:        CleanupSignalHandler called
 tbl3rd@ownlife ~ 130#
+```
 
 At this point you have an RFB source on 'engsoc:5900' for the Twitter
 Ticker demo overlay.
